@@ -1,9 +1,17 @@
 from os import system
-from .data import camper
+from .data import camper, generos
 from .validar import menunovalido
-def save(nombre):
-    camper.append(nombre)
-    return f"sucessfully camper {nombre} "
+def save():
+    info = {
+        "nombre": input("ingrese el nombre del camper\n"),
+        "Apellido": input("Ingrese el apellido del camper\n"),
+        "Edad": int(input("Ingrese la edad del camper\n")),
+        "Genero": input("Elija su genero:\n\t"+"\t".join([f"{generos.index(i)+1}. {i}\n" for i in sorted(generos)]))
+
+    }
+   
+    camper.append(info)
+    return f"sucessfully camper "
 def edit():
     return "edit to treiner"
 def search():
