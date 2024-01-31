@@ -1,8 +1,8 @@
+import json
 from os import system
 import modulo.camper as camper
 import modulo.trainer as trainer
 from modulo.validar import menunovalido
-
 def menu():
     print("sistema de almecenamiento de datos para campus")
     print("\t1.Informacion del camper") 
@@ -14,8 +14,12 @@ while (bandera):
     opc = int(input())
     match(opc):
         case 1:
-            system("clear")
-            camper.menu()
+
+          with open("modulo/storage/camper.json", "r") as f:
+                camper.camper = json.loads(f.read())
+                f.close()
+                system("clear")
+                camper.menu()
         case 2:
             system("clear")
             trainer.menu()
