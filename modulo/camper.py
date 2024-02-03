@@ -14,7 +14,7 @@ def save():
         data = json.dumps(camper, indent=4)
         f.write(data)
         f.close()
-    return f"sucessfully camper "
+    return "sucessfully camper "
 def edit():
     bandera=True
     while (bandera):
